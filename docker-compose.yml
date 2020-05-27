@@ -1,0 +1,20 @@
+version: '3.5'
+services:
+  rabbitmq:
+    container_name: v-rabbitmq
+    image: rabbitmq:3.8.3-management
+    restart: always
+    ports:
+      - 5672:5672
+      - 15672:15672
+    hostname: user-center
+    environment:
+      RABBITMQ_DEFAULT_VHOST: /
+      RABBITMQ_DEFAULT_USER: admin
+      RABBITMQ_DEFAULT_PASS: Oqro55Mz
+      RABBITMQ_LOGS: /var/lib/rabbitmq/rabbitmq.log
+      RABBITMQ_SASL_LOGS: /var/lib/rabbitmq/rabbitmq-sasl.log
+      RABBITMQ_ERLANG_COOKIE: LZJADKXKLULIXFKAALGX
+      TZ: Asia/Shanghai
+    volumes:
+      - ~/data/rabbitmq:/var/lib/rabbitmq
